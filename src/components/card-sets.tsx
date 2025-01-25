@@ -8,7 +8,7 @@ export function CardSets() {
     if (!cardSets) return <div>Loading...</div>;
 
     return (
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-3 gap-8">
             {cardSets.map((set) => (
                 <CardSet
                     key={set.id}

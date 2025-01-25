@@ -19,7 +19,7 @@ function RouteComponent() {
     if (!set) return <div>Loading...</div>;
 
     return (
-        <MaxWidthContainer className="px-4 py-8 space-y-8">
+        <MaxWidthContainer className="py-8 space-y-8">
             <h1 className="text-4xl font-bold text-center">{set.name}</h1>
             <SearchQueryProvider>
                 <div className="flex flex-col md:flex-row gap-4">

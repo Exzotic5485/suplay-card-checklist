@@ -22,6 +22,7 @@ export function Pagination({
             <PaginationButton
                 variant="arrow"
                 onClick={() => onPageChange?.(page - 1)}
+                disabled={page <= 1}
             >
                 <ChevronLeftIcon />
             </PaginationButton>
@@ -41,6 +42,7 @@ export function Pagination({
             <PaginationButton
                 variant="arrow"
                 onClick={() => onPageChange?.(page + 1)}
+                disabled={page >= totalPages}
             >
                 <ChevronRightIcon />
             </PaginationButton>
@@ -49,7 +51,7 @@ export function Pagination({
 }
 
 const paginationButtonVariants = cva(
-    "grid place-items-center h-7 min-w-7 px-0.5 border border-transparent rounded",
+    "grid place-items-center h-7 min-w-7 px-0.5 border border-transparent rounded disabled:opacity-30",
     {
         variants: {
             variant: {

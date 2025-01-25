@@ -12,7 +12,7 @@ export function CardSet({ set }: CardSetProps) {
             to="/$setId"
             params={{ setId: set.id }}
         >
-            <Card>
+            <Card className="h-full">
                 <img
                     src={set.image}
                     className="rounded-t-[inherit] w-full h-auto"

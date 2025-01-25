@@ -47,4 +47,7 @@ app.get("/image/:image", async (c) => {
     }
 });
 
-export default app;
+Bun.serve({
+    fetch: app.fetch,
+    port: 4000
+})

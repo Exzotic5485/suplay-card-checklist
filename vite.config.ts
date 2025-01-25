@@ -2,7 +2,7 @@ import path from "path";
 import react from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 // @ts-expect-error - no TS types yet for beta test.
-import PluginObject from 'babel-plugin-react-compiler'
+import PluginObject from "babel-plugin-react-compiler";
 
 import { defineConfig } from "vite";
 
@@ -16,7 +16,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/image": {
-                target: "http://localhost:3000",
+                target: "http://localhost:4000",
                 changeOrigin: true,
             },
         },

@@ -8,7 +8,7 @@ export function MaxWidthContainer({
 }: MaxWidthContainerProps) {
     return (
         <div
-            className={cn("mx-auto max-w-7xl", className)}
+            className={cn("mx-auto max-w-7xl px-4", className)}
             {...props}
         />
     );
