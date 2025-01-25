@@ -28,7 +28,7 @@ function checklistToJSON(
         const card: CardData = {
             id: sheet[columns.id + row].w,
             name: sheet[columns.name + row].w,
-            franchise: sheet[columns.franchise + row].w,
+            franchise: sheet[columns.franchise + row]?.w ?? "",
             serial: sheet[columns.serial + row].w,
             variety: sheet[columns.variety + row].w,
         };
