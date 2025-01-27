@@ -6,6 +6,7 @@ import { ITEMS_PER_PAGE } from "@/lib/constants";
 import type { CardSet } from "@/lib/db";
 import { countCardsFiltered, getCardsFiltered } from "@/lib/db/cards";
 import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect } from "react";
 
 type CardsProps = {
     set: CardSet;
@@ -47,12 +48,16 @@ export function Cards({ set }: CardsProps) {
         [set, debouncedSearch, character, franchise, varieties]
     );
 
+    useEffect(() => {
+        setPage(1);
+    }, [cards]);
+
     return (
         <div className="flex flex-col gap-1">
             <p className="text-muted-foreground text-xs self-end">
                 {count || 0} results
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-between">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {cards?.map((card) => (
                     <Card
                         key={card.id}

@@ -10,7 +10,7 @@
         --card-foreground: 0 0% 3.9%;
         --popover: 0 0% 100%;
         --popover-foreground: 0 0% 3.9%;
-        --primary: 243.4 75.4% 58.6%;
+        --primary: 243.4 75.4% 62.6%;
         --primary-foreground: 0 0% 98%;
         --secondary: 0 0% 96.1%;
         --secondary-foreground: 0 0% 9%;
@@ -34,23 +34,25 @@
     .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
+        --card: 0 0% 100% / 0.05;
         --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
+        --popover: 220 40.3% 11.2% / 0.75;
         --popover-foreground: 0 0% 98%;
-        --primary: 243.4 75.4% 58.6%;
-        --primary-foreground: 0 0% 9%;
+        /* --primary: 243.4 75.4% 58.6%; */
+        --primary: 198 86% 60%;
+        /* --primary-foreground: 0 0% 9%; */
+        --primary-foreground: 0 0% 100%;
         --secondary: 0 0% 14.9%;
         --secondary-foreground: 0 0% 98%;
         --muted: 0 0% 14.9%;
         --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
+        --accent: 0 0% 100% / 0.05;
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 243.4 75.4% 58.6%;
+        --border: 0 0% 100% / 0.125;
+        --input: 0 0% 100% / 0.1;
+        --ring: 198 86% 60%;
         --chart-1: 220 70% 50%;
         --chart-2: 160 60% 45%;
         --chart-3: 30 80% 55%;
@@ -66,4 +68,19 @@
     body {
         @apply bg-background text-foreground;
     }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -50;
+
+    /* background: linear-gradient(45deg, #030a1b 70%, #07445e, #5e425b); */
+    background: radial-gradient(#07445e, #030a1b);
+    /* background-image: url("https://img.suplaymart.com/img/652_63506d245f92420ea76287c587a09d5f.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(16px) saturate(180%); */
 }

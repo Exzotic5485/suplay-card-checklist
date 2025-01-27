@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 
 .wrangler
+.env
+images
+
+# misc generated from scripts
+checklist*.xlsx
+cards.json
+failures.json

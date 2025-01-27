@@ -13,3 +13,5 @@ export const SortTypeLabels: Record<SortType, string> = {
 };
 
 export const ITEMS_PER_PAGE = 60;
+
+export const IMAGE_SOURCE_URL = "https://checklist-images.exzotic.xyz";
