@@ -1,9 +1,8 @@
 import { db, type Card } from "@/lib/db";
+import sets from "@/assets/sets.json";
 
 export async function syncDB() {
     const t1 = performance.now();
-
-    const sets = await fetchSets();
 
     for (const set of sets) {
         await syncSet(set.id, set.version);
@@ -36,11 +35,6 @@ async function syncSet(setId: string, version: number) {
     });
 }
 
-type SetsResponse = {
-    id: string;
-    version: number;
-}[];
-
 type SetResponse = {
     id: string;
     name: string;
@@ -48,16 +42,6 @@ type SetResponse = {
     horizontalVarieties: string[];
     cards: Omit<Card, "setId">[];
 };
-
-async function fetchSets(): Promise<SetsResponse> {
-    const response = await fetch("/sets.json");
-
-    if (response.status !== 200) {
-        throw new Error("Failed to fetch sets.json");
-    }
-
-    return response.json();
-}
 
 async function fetchSet(id: string): Promise<SetResponse> {
     const response = await fetch(`/set/${id}.json`);
@@ -68,3 +52,18 @@ async function fetchSet(id: string): Promise<SetResponse> {
 
     return response.json();
 }
+
+// type SetsResponse = {
+//     id: string;
+//     version: number;
+// }[];
+
+// async function fetchSets(): Promise<SetsResponse> {
+//     const response = await fetch("/sets.json");
+
+//     if (response.status !== 200) {
+//         throw new Error("Failed to fetch sets.json");
+//     }
+
+//     return response.json();
+// }
