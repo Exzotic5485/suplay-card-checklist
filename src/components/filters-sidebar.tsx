@@ -102,6 +102,7 @@ function VarietyCheckboxes({ set }: FiltersSidebarProps) {
                 <div className="flex flex-col gap-2">
                     {varietiesForSet?.map((variety) => (
                         <div
+                            key={variety}
                             onClick={() => handleSelect(variety)}
                             className="flex items-center gap-2"
                         >
