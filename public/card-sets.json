@@ -1,7 +1,7 @@
 {
     "wb-100-all-star": {
         "name": "COSMOS Warner Bros.100th Anniversary ALL-STAR",
-        "image": "https://img.suplaymart.com/img/652_63506d245f92420ea76287c587a09d5f.jpg?imageView2/2/w/800/interlace/1/q/90",
+        "image": "/wb-all-star_cover.png",
         "horizontalVarieties": [
             "Final Frames Card",
             "Legacy Iconic Script Art Card",
@@ -22437,7 +22437,7 @@
     },
     "wb-100-phantom": {
         "name": "COSMOS Warner Bros.100th Anniversary Phantom",
-        "image": "https://img.suplaymart.com/img/652_4bcde2d268434dab9b4cfcb8cf289ec2.jpg?imageView2/2/w/1053/interlace/1/q/90",
+        "image": "/wb-phantom_cover.png",
         "horizontalVarieties": [],
         "cards": [
             {
@@ -37249,7 +37249,7 @@
     },
     "harry-potter-phantom": {
         "name": "PHANTOM Harry Potter Trading Cards",
-        "image": "https://img.suplaymart.com/img/652_164bf0efe94d4d21b889687deb935c0c.jpg?imageView2/2/w/1400/interlace/1/q/90",
+        "image": "/harry-potter-phantom_cover.png",
         "horizontalVarieties": [],
         "cards": [
             {
