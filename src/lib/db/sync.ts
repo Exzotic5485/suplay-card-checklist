@@ -1,55 +1,69 @@
 import { db, type Card } from "@/lib/db";
 
-// TODO: need to change implementation of this to fetch from server. at the minute this is just to mock the data
-
-async function isSynced() {
-    const count = await db.cards.limit(1).count();
-
-    return count > 0;
-}
 export async function syncDB() {
-    const synced = await isSynced();
+    const t1 = performance.now();
 
-    if (synced) {
-        console.log("[DB SYNC] Cards are already synced.");
+    const sets = await fetchSets();
+
+    for (const set of sets) {
+        await syncSet(set.id, set.version);
+    }
+
+    console.log(`[DB SYNC] Succesfully synced in ${performance.now() - t1}ms.`);
+}
+
+async function syncSet(setId: string, version: number) {
+    const setDB = await db.sets.get(setId);
+
+    if (setDB && setDB.version >= version) {
+        console.log(`[DB SYNC] ${setId} is up to date.`);
         return;
     }
 
-    const cardSets = await fetchCardSets();
+    console.log(`[DB SYNC] Updating ${setId} to version ${version}.`);
 
-    for (const [setId, set] of Object.entries(cardSets)) {
-        await db.sets.add({
-            id: setId,
-            image: set.image,
-            name: set.name,
-            horizontalVarieties: set.horizontalVarieties,
+    const { cards, ...set } = await fetchSet(setId);
+
+    await db.transaction("rw", db.sets, db.cards, async () => {
+        await db.sets.put({
+            ...set,
+            version,
         });
 
         await db.cards.bulkPut(
-            set.cards.map((card) => ({
-                ...card,
-                setId,
-            }))
+            cards.map((card) => ({ ...card, setId: set.id }))
         );
-    }
-
-    console.log("[DB SYNC] Succesfully synced.");
+    });
 }
 
-type CardSetResponse = {
-    [key: string]: {
-        name: string;
-        image: string;
-        horizontalVarieties: string[];
-        cards: Omit<Card, "setId">[];
-    };
+type SetsResponse = {
+    id: string;
+    version: number;
+}[];
+
+type SetResponse = {
+    id: string;
+    name: string;
+    image: string;
+    horizontalVarieties: string[];
+    cards: Omit<Card, "setId">[];
 };
 
-async function fetchCardSets(): Promise<CardSetResponse> {
-    const response = await fetch("/card-sets.json");
+async function fetchSets(): Promise<SetsResponse> {
+    const response = await fetch("/sets.json");
 
     if (response.status !== 200) {
-        throw new Error("Failed to fetch card-sets.json");
+        throw new Error("Failed to fetch sets.json");
+    }
+
+    return response.json();
+}
+
+async function fetchSet(id: string): Promise<SetResponse> {
+    const response = await fetch(`/set/${id}.json`);
+
+    if (response.status !== 200) {
+        throw new Error(`Failed to fetch set by id '${id}'`);
     }
 
     return response.json();

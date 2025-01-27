@@ -6,6 +6,7 @@ type CardSet = {
     name: string;
     image: string;
     horizontalVarieties: string[];
+    version: number;
 };
 
 type Card = {
