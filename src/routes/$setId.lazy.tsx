@@ -16,7 +16,7 @@ function RouteComponent() {
 
     const set = useLiveQuery(() => getSetById(setId));
 
-    if (!set) return <div>Loading...</div>;
+    if (!set) return null;
 
     return (
         <MaxWidthContainer className="py-8 space-y-8">

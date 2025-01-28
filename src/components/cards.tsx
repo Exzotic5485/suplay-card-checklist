@@ -33,7 +33,9 @@ export function Cards({ set }: CardsProps) {
             page
         );
 
-        console.log(`[DEBUG] Cards took ${performance.now() - t1}ms to query.`);
+        console.log(
+            `[DEBUG] Cards took ${performance.now() - t1}ms to query ${result.length} results.`
+        );
 
         return result;
     }, [set, debouncedSearch, sort, character, franchise, varieties, page]);
@@ -45,17 +47,18 @@ export function Cards({ set }: CardsProps) {
                 franchise,
                 varieties,
             }),
-        [set, debouncedSearch, character, franchise, varieties]
+        [set, debouncedSearch, character, franchise, varieties],
+        0
     );
 
     useEffect(() => {
         setPage(1);
-    }, [cards]);
+    }, [setPage, debouncedSearch, sort, character, franchise, varieties]);
 
     return (
         <div className="flex flex-col gap-1">
             <p className="text-muted-foreground text-xs self-end">
-                {count || 0} results
+                {count} results
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {cards?.map((card) => (

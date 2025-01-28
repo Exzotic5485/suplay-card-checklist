@@ -25,7 +25,7 @@ const db = new Dexie("CardDatabase") as Dexie & {
 
 db.version(1).stores({
     sets: "&id",
-    cards: "&id, setId, name, variety, serial, franchise",
+    cards: "&id, setId, name",
 });
 
 syncDB();
