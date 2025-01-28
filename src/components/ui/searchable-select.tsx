@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
     Command,
     CommandEmpty,
@@ -12,15 +12,16 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
-import { ChevronsUpDown } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+import { ChevronsUpDown, XIcon } from "lucide-react";
+import { useRef, useState } from "react";
 
 type SearchableSelectProps = {
     values: string[];
     placeholder?: string;
     inputPlaceholder?: string;
-    value: string;
-    onValueChange: (newValue: string) => void;
+    value: Set<string>;
+    onValueChange: (newValue: Set<string>) => void;
     empty: string;
 };
 
@@ -36,15 +37,24 @@ export function SearchableSelect({
 
     const listRef = useRef<HTMLDivElement | null>(null);
 
-    const selectedValue = useMemo(
-        () => values.find((v) => v === value),
-        [value, values]
-    );
+    const handleSelect = (selectedValue: string) => {
+        const newValue = new Set(value);
 
-    const handleSelect = (newValue: string) => {
-        onValueChange(newValue === value ? "" : newValue);
+        if (newValue.has(selectedValue)) {
+            newValue.delete(selectedValue);
+        } else {
+            newValue.add(selectedValue);
+        }
 
-        setOpen(false);
+        onValueChange(newValue);
+    };
+
+    const handleRemove = (removingValue: string) => {
+        const newValue = new Set(value);
+
+        newValue.delete(removingValue);
+
+        onValueChange(newValue);
     };
 
     const handleInputScroll = () => {
@@ -59,19 +69,35 @@ export function SearchableSelect({
             onOpenChange={setOpen}
         >
             <PopoverTrigger asChild>
-                <Button
-                    variant="outline"
-                    role="combobox"
-                    className="w-full justify-between"
-                    aria-expanded={open}
+                <div
+                    className={cn(
+                        buttonVariants({ variant: "outline" }),
+                        "h-auto gap-2 hover:bg-inherit w-full"
+                    )}
                 >
-                    {selectedValue ? (
-                        <div className="truncate">{selectedValue}</div>
+                    {value.size > 0 ? (
+                        <div className="flex flex-wrap items-center gap-2">
+                            {value.values().map((value) => (
+                                <div className="flex items-center justify-between gap-1 bg-primary/40 px-2 rounded">
+                                    {value}
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+
+                                            handleRemove(value);
+                                        }}
+                                        className="p-0.5"
+                                    >
+                                        <XIcon className="size-3 text-muted-foreground" />
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
                     ) : (
                         placeholder
                     )}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
+                    <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
+                </div>
             </PopoverTrigger>
             <PopoverContent className="p-0 w-[var(--radix-popover-trigger-width)]">
                 <Command>
@@ -89,9 +115,7 @@ export function SearchableSelect({
                                     onSelect={handleSelect}
                                     keywords={[v]}
                                     className={
-                                        v === selectedValue
-                                            ? "font-medium"
-                                            : ""
+                                        value.has(v) ? "font-medium" : ""
                                     }
                                 >
                                     {v}

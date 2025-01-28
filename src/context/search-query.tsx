@@ -9,12 +9,12 @@ import {
 type SearchQueryContextType = {
     search: string;
     sort: SortType;
-    franchise: string;
-    character: string;
+    franchise: Set<string>;
+    character: Set<string>;
     varieties: Set<string>;
     page: number;
-    setFranchise: React.Dispatch<React.SetStateAction<string>>;
-    setCharacter: React.Dispatch<React.SetStateAction<string>>;
+    setFranchise: React.Dispatch<React.SetStateAction<Set<string>>>;
+    setCharacter: React.Dispatch<React.SetStateAction<Set<string>>>;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
     setSort: React.Dispatch<React.SetStateAction<SortType>>;
     setVarieties: React.Dispatch<React.SetStateAction<Set<string>>>;
@@ -27,8 +27,8 @@ export function SearchQueryProvider({ children }: PropsWithChildren) {
     const [search, setSearch] = useState("");
     const [sort, setSort] = useState<SortType>(SortType.ATOZ);
 
-    const [franchise, setFranchise] = useState("");
-    const [character, setCharacter] = useState("");
+    const [franchise, setFranchise] = useState<Set<string>>(new Set());
+    const [character, setCharacter] = useState<Set<string>>(new Set());
     const [varieties, setVarieties] = useState<Set<string>>(new Set());
 
     const [page, setPage] = useState(1);

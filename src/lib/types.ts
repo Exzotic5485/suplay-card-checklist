@@ -1,5 +1,5 @@
 export type Filters = {
-    franchise: string;
-    character: string;
+    franchise: Set<string>;
+    character: Set<string>;
     varieties: Set<string>;
 };

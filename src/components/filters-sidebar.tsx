@@ -33,7 +33,7 @@ function FranchiseSelect({ set }: FiltersSidebarProps) {
     return useMemo(
         () => (
             <div className="space-y-1">
-                <FilterLabel reset={() => setFranchise("")}>
+                <FilterLabel reset={() => setFranchise(new Set())}>
                     Franchise
                 </FilterLabel>
                 <SearchableSelect
@@ -57,7 +57,7 @@ function CharacterSelect({ set }: FiltersSidebarProps) {
     return useMemo(
         () => (
             <div className="space-y-1">
-                <FilterLabel reset={() => setCharacter("")}>
+                <FilterLabel reset={() => setCharacter(new Set())}>
                     Character
                 </FilterLabel>
                 <SearchableSelect

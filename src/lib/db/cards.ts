@@ -23,8 +23,8 @@ function isCardValid(
     if (card.setId !== setId) return false;
 
     return (
-        (franchise ? card.franchise === franchise : true) &&
-        (character ? card.name === character : true) &&
+        (franchise.size > 0 ? franchise.has(card.franchise) : true) &&
+        (character.size > 0 ? character.has(card.name) : true) &&
         (varieties.size > 0 ? varieties.has(card.variety) : true) &&
         (search
             ? includes(card.name, search) ||
