@@ -77,7 +77,7 @@ export function SearchableSelect({
                 >
                     {value.size > 0 ? (
                         <div className="flex flex-wrap items-center gap-2 overflow-hidden">
-                            {value.values().map((value) => (
+                            {[...value.values()].map((value) => (
                                 <div className="flex items-center justify-between gap-1 bg-primary/40 px-2 rounded overflow-hidden">
                                     <p className="truncate">{value}</p>
                                     <button
