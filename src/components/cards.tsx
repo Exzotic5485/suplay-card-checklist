@@ -55,6 +55,10 @@ export function Cards({ set }: CardsProps) {
         setPage(1);
     }, [setPage, debouncedSearch, sort, character, franchise, varieties]);
 
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, [page]);
+
     return (
         <div className="flex flex-col gap-1">
             <p className="text-muted-foreground text-xs self-end">
