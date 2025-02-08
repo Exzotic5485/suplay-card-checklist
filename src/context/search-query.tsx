@@ -1,3 +1,4 @@
+import { useSearchParamState } from "@/hooks/use-search-param-state";
 import { SortType } from "@/lib/constants";
 import {
     createContext,
@@ -24,14 +25,24 @@ type SearchQueryContextType = {
 const SearchQueryContext = createContext<SearchQueryContextType | null>(null);
 
 export function SearchQueryProvider({ children }: PropsWithChildren) {
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useSearchParamState<string>("search", "");
     const [sort, setSort] = useState<SortType>(SortType.ATOZ);
 
-    const [franchise, setFranchise] = useState<Set<string>>(new Set());
-    const [character, setCharacter] = useState<Set<string>>(new Set());
-    const [varieties, setVarieties] = useState<Set<string>>(new Set());
+    const [franchise, setFranchise] = useSearchParamState<Set<string>>(
+        "franchise",
+        new Set()
+    );
 
-    const [page, setPage] = useState(1);
+    const [character, setCharacter] = useSearchParamState<Set<string>>(
+        "character",
+        new Set()
+    );
+    const [varieties, setVarieties] = useSearchParamState<Set<string>>(
+        "varieties",
+        new Set()
+    );
+
+    const [page, setPage] = useSearchParamState<number>("page", 1);
 
     return (
         <SearchQueryContext.Provider

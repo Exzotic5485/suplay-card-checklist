@@ -53,7 +53,7 @@ export function Cards({ set }: CardsProps) {
 
     useEffect(() => {
         setPage(1);
-    }, [setPage, debouncedSearch, sort, character, franchise, varieties]);
+    }, [debouncedSearch, sort, character, franchise, varieties]);
 
     useEffect(() => {
         window.scroll(0, 0);
