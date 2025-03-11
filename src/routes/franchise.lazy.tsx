@@ -159,6 +159,6 @@ export function Character({ character }: CharacterProps) {
                 </Select>
             </div>
         ),
-        [character]
+        [character, card]
     );
 }
