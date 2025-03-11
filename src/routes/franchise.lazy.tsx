@@ -145,13 +145,13 @@ export function Character({ character }: CharacterProps) {
                     className="h-[510px] sm:h-[410px] w-auto"
                 />
                 <span>{character}</span>{" "}
-                <Select onValueChange={(v) => handleSelect(v)}>
+                <Select value={card?.franchise} onValueChange={(v) => handleSelect(v)}>
                     <SelectTrigger>
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                         {FRANCHISES.map((franchise) => (
-                            <SelectItem value={franchise}>
+                            <SelectItem key={franchise} value={franchise}>
                                 {franchise}
                             </SelectItem>
                         ))}
