@@ -16,10 +16,17 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const FranchiseLazyImport = createFileRoute('/franchise')()
 const SetIdLazyImport = createFileRoute('/$setId')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const FranchiseLazyRoute = FranchiseLazyImport.update({
+  id: '/franchise',
+  path: '/franchise',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/franchise.lazy').then((d) => d.Route))
 
 const SetIdLazyRoute = SetIdLazyImport.update({
   id: '/$setId',
@@ -51,6 +58,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SetIdLazyImport
       parentRoute: typeof rootRoute
     }
+    '/franchise': {
+      id: '/franchise'
+      path: '/franchise'
+      fullPath: '/franchise'
+      preLoaderRoute: typeof FranchiseLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -59,36 +73,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/$setId': typeof SetIdLazyRoute
+  '/franchise': typeof FranchiseLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/$setId': typeof SetIdLazyRoute
+  '/franchise': typeof FranchiseLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
   '/$setId': typeof SetIdLazyRoute
+  '/franchise': typeof FranchiseLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$setId'
+  fullPaths: '/' | '/$setId' | '/franchise'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$setId'
-  id: '__root__' | '/' | '/$setId'
+  to: '/' | '/$setId' | '/franchise'
+  id: '__root__' | '/' | '/$setId' | '/franchise'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   SetIdLazyRoute: typeof SetIdLazyRoute
+  FranchiseLazyRoute: typeof FranchiseLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   SetIdLazyRoute: SetIdLazyRoute,
+  FranchiseLazyRoute: FranchiseLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -102,7 +121,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/$setId"
+        "/$setId",
+        "/franchise"
       ]
     },
     "/": {
@@ -110,6 +130,9 @@ export const routeTree = rootRoute
     },
     "/$setId": {
       "filePath": "$setId.lazy.tsx"
+    },
+    "/franchise": {
+      "filePath": "franchise.lazy.tsx"
     }
   }
 }
