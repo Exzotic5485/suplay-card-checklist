@@ -10,7 +10,7 @@ export function getSetById(id: string) {
 }
 
 export async function getFranchisesForSet(id: string) {
-    const cards = await getCardsForSet(id);
+    const cards = await db.cards.where("setId").startsWith(id).sortBy("franchise");
 
     return Array.from(new Set(cards.map((card) => card.franchise)));
 }

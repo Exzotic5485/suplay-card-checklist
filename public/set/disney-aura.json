@@ -42,7 +42,7 @@
         {
             "id": "AD-AU-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Aura Card"
         },
@@ -238,7 +238,7 @@
         {
             "id": "AD-AU-122",
             "name": "Alberto",
-            "franchise": "",
+            "franchise": "Luca",
             "serial": "/",
             "variety": "Aura Card"
         },
@@ -1050,7 +1050,7 @@
         {
             "id": "AD-B-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Base Card"
         },
@@ -1141,7 +1141,7 @@
         {
             "id": "AD-B-109",
             "name": "Alberto",
-            "franchise": "",
+            "franchise": "Luca",
             "serial": "/",
             "variety": "Base Card"
         },
@@ -2058,7 +2058,7 @@
         {
             "id": "AD-HN-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "345",
             "variety": "Flower Card"
         },
@@ -2758,7 +2758,7 @@
         {
             "id": "AD-HN-98",
             "name": "Alberto",
-            "franchise": "",
+            "franchise": "Luca",
             "serial": "345",
             "variety": "Flower Card"
         },
@@ -2814,7 +2814,7 @@
         {
             "id": "AD-I-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Silver Card"
         },
@@ -2905,7 +2905,7 @@
         {
             "id": "AD-I-109",
             "name": "Alberto",
-            "franchise": "",
+            "franchise": "Luca",
             "serial": "/",
             "variety": "Silver Card"
         },
@@ -3234,7 +3234,7 @@
         {
             "id": "AD-I-151",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Silver Card"
         },
@@ -4326,7 +4326,7 @@
         {
             "id": "AD-IA-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "100",
             "variety": "Signature Card -#/100"
         },
@@ -4641,7 +4641,7 @@
         {
             "id": "AD-IAB-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "1",
             "variety": "Aura Black Signature Card -1/1"
         },
@@ -4956,7 +4956,7 @@
         {
             "id": "AD-IAF-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "50",
             "variety": "Signature Card -#/50"
         },
@@ -5292,7 +5292,7 @@
         {
             "id": "AD-IAG-10",
             "name": "Disney Princess",
-            "franchise": "",
+            "franchise": "/",
             "serial": "5",
             "variety": "Signature Card -#/5"
         },
@@ -5341,7 +5341,7 @@
         {
             "id": "AD-IAI-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "75",
             "variety": "Aura Black Signature Card -#/75"
         },
@@ -5649,7 +5649,7 @@
         {
             "id": "AD-IB-06",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "1",
             "variety": "Aura Black Peacock Card"
         },
@@ -5908,7 +5908,7 @@
         {
             "id": "AD-IG-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "10",
             "variety": "Aura Gold Peacock Card"
         },
@@ -6412,7 +6412,7 @@
         {
             "id": "AD-IGR-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "25",
             "variety": "Aura Green Peacock Card"
         },
@@ -6643,7 +6643,7 @@
         {
             "id": "AD-IGR-127",
             "name": "Alberto",
-            "franchise": "",
+            "franchise": "Luca",
             "serial": "25",
             "variety": "Aura Green Peacock Card"
         },
@@ -7420,7 +7420,7 @@
         {
             "id": "AD-IP-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "45",
             "variety": "Aura Pink Card"
         },
@@ -8043,7 +8043,7 @@
         {
             "id": "AD-IW-06",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "5",
             "variety": "Aura White Peacock Card"
         },
@@ -8260,7 +8260,7 @@
         {
             "id": "AD-ML",
             "name": "Contents Base Card",
-            "franchise": "",
+            "franchise": "/",
             "serial": "/",
             "variety": "Contents Base Card"
         },
@@ -8778,7 +8778,7 @@
         {
             "id": "AD-XB-07",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Line Base Card"
         },
@@ -9303,7 +9303,7 @@
         {
             "id": "AD-Z-10",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Gen Z Card"
         },
@@ -9317,7 +9317,7 @@
         {
             "id": "AD-Z-12",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "/",
             "variety": "Gen Z Card"
         },
@@ -9401,7 +9401,7 @@
         {
             "id": "AD-AP-06",
             "name": "Chip 'n Dale",
-            "franchise": "",
+            "franchise": "Chip 'n Dale",
             "serial": "225",
             "variety": "Aura Plaid Card"
         },
