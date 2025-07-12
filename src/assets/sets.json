@@ -14,5 +14,9 @@
     {
         "id": "disney-aura",
         "version": 3
+    },
+    {
+        "id": "disney-cosmos",
+        "version": 0
     }
 ]
